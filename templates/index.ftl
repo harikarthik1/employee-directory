@@ -1,0 +1,126 @@
+<#assign employees = [
+  {"id": 1, "firstName": "Alice", "lastName": "Smith", "email": "alice@example.com", "department": "HR", "role": "Manager"},
+  {"id": 2, "firstName": "Bob", "lastName": "Johnson", "email": "bob@example.com", "department": "IT", "role": "Developer"},
+  {"id": 3, "firstName": "Charlie", "lastName": "Lee", "email": "charlie@example.com", "department": "Finance", "role": "Analyst"}
+]>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Directory</title>
+  <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>Employee Directory</h1>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search by name or email">
+      <button class="filter-btn">Filter</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Top Controls -->
+    <div class="controls-row">
+      <div class="sort-show">
+        <label>Sort: 
+          <select id="sortBy">
+            <option value="">--Select--</option>
+            <option value="firstName">Name</option>
+            <option value="department">Department</option>
+          </select>
+        </label>
+        <label>Show: 
+          <select id="itemsPerPage">
+            <option value="10">10</option>
+            <option value="20">20</option>
+          </select>
+        </label>
+      </div>
+      <button onclick="openForm()" class="add-btn">Add Employee</button>
+    </div>
+
+    <!-- Employee Cards -->
+    <div class="body-container">
+      <div id="employeeList" class="card-list"></div>
+      <div id="paginationControls" class="pagination"></div>
+    </div>
+  </div>
+
+  <!-- Modal Form -->
+
+  <div id="formModal" class="modal">
+    <div class="modal-content form-modern">
+      <h1>Add Employee</h1>
+      <form id="employeeForm">
+        <input type="hidden" id="employeeId" />
+
+        <label for="firstName">First name</label>
+        <input type="text" id="firstName" required />
+
+        <label for="lastName">Last name</label>
+        <input type="text" id="lastName" required />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required />
+          </div>
+          <div class="form-group">
+            <label for="department">Department</label>
+            <select id="department" required>
+              <option value="">Select</option>
+              <option value="HR">HR</option>
+              <option value="Engineering">Engineering</option>
+              <option value="Sales">Sales</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Finance">Finance</option>
+              <option value="IT">IT</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="role">Role</label>
+        <select id="role" required>
+          <option value="">Select</option>
+          <option value="Manager">Manager</option>
+          <option value="Developer">Developer</option>
+          <option value="Analyst">Analyst</option>
+          <option value="Executive">Executive</option>
+        </select>
+
+        <p id="formError" class="error"></p>
+
+        <div class="form-actions">
+          <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+          <button type="submit" class="btn primary">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 Employee Directory App. All rights reserved.
+  </footer>
+
+  <script>
+    const initialEmployees = [
+    <#list employees as emp>
+      {
+        "id": ${emp.id},
+        "firstName": "${emp.firstName}",
+        "lastName": "${emp.lastName}",
+        "email": "${emp.email}",
+        "department": "${emp.department}",
+        "role": "${emp.role}"
+      }<#if emp_has_next>,</#if>
+    </#list>
+    ];
+  </script>
+  <script src="../app.js"></script>
+</body>
+</html>
