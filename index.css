@@ -1,4 +1,4 @@
-/* Reset & Page Base */
+/*Reset and base layout*/
 html, body {
   height: 100%;
   margin: 0;
@@ -13,7 +13,7 @@ body {
   color: #222;
 }
 
-/* Header */
+/*Header*/
 .header {
   background-color: #2f2f2f;
   color: white;
@@ -21,6 +21,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .search-container {
@@ -43,7 +44,7 @@ body {
   cursor: pointer;
 }
 
-/* Container Section */
+/*container*/
 .container {
   flex: 1;
   padding: 20px;
@@ -53,7 +54,7 @@ body {
   box-sizing: border-box;
 }
 
-/* Controls Row */
+/*control-row */
 .controls-row {
   display: flex;
   justify-content: space-between;
@@ -73,7 +74,7 @@ body {
   font-size: 14px;
 }
 
-/* Add Button */
+/*add-btn*/
 .add-btn {
   background-color: #28a745;
   color: white;
@@ -84,19 +85,12 @@ body {
   font-weight: bold;
 }
 
-.body-container{
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Employee Cards Grid */
+/*employee-card*/
 .card-list {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  justify-content: flex-start;
 }
 
 .employee-card {
@@ -130,7 +124,7 @@ body {
   color: white;
 }
 
-/* Pagination */
+/*pagination*/
 .pagination {
   margin-top: 20px;
   text-align: center;
@@ -151,7 +145,7 @@ body {
   cursor: not-allowed;
 }
 
-/* Modal Overlay */
+/*modal*/
 .modal {
   display: none;
   position: fixed;
@@ -161,7 +155,7 @@ body {
   overflow: auto;
 }
 
-/* Modal Content */
+/*modal-content*/
 .modal-content {
   background: white;
   margin: 5% auto;
@@ -209,7 +203,7 @@ body {
   flex-direction: column;
 }
 
-/* Modal Actions */
+/*modal-actions*/
 .form-actions {
   display: flex;
   justify-content: flex-end;
@@ -235,7 +229,14 @@ body {
   color: white;
 }
 
-/* Close Button */
+/*error*/
+.error {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/*close*/
 .close {
   position: absolute;
   top: 10px;
@@ -244,19 +245,97 @@ body {
   cursor: pointer;
 }
 
-/* Form Error Message */
-.error {
-  color: red;
-  font-size: 13px;
-  margin-top: 5px;
-}
-
-/* Footer */
+/*footer*/
 .footer {
   background-color: #2f2f2f;
   color: white;
   padding: 12px;
   text-align: center;
   font-size: 14px;
+  margin-top: auto;
+}
+/* Tablets (≤768px) */
+@media (max-width: 768px) {
+  .controls-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .sort-show {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .card-list {
+    justify-content: center;
+  }
+
+  .employee-card {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .modal-content {
+    margin-top: 30px;
+    padding: 20px;
+  }
 }
 
+/* Phones (≤480px) */
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .search-container {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .search-container input {
+    width: 100%;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin-top: 40px;
+    border-radius: 10px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .employee-card {
+    width: 100%;
+  }
+
+  footer.footer {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
