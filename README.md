@@ -1,4 +1,4 @@
-# Ajackus Frontend Assignment – Employee Directory
+# Employee Directory
 
 This is a dynamic employee directory web app built using FreeMarker, HTML, CSS, and JavaScript.
 
@@ -12,7 +12,7 @@ This is a dynamic employee directory web app built using FreeMarker, HTML, CSS, 
 - `templates/index.ftl` → Freemarker template
 - `app.js` → All JS logic
 - `index.css` → Layout & styling
-- `output/index.html` → Generated HTML (Open this!)
+- `index.html` → Generated HTML (Open this!)
 - `freemarker-cli-2.0.0-BETA-5.jar` → CLI tool (optional)
 - `README.md` → Instructions
 
@@ -20,4 +20,4 @@ This is a dynamic employee directory web app built using FreeMarker, HTML, CSS, 
 1. Make sure Java is installed
 2. Run:
 ```bash
-./freemarker-cli-2.0.0-BETA-5/bin/freemarker-cli -t templates/index.ftl -o output/index.html
+./freemarker-cli-2.0.0-BETA-5/bin/freemarker-cli -t templates/index.ftl -o index.html
