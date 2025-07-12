@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Employee Directory</title>
-  <link rel="stylesheet" href="../index.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
@@ -121,6 +121,6 @@
     </#list>
     ];
   </script>
-  <script src="../app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
